@@ -21,5 +21,9 @@ public class KundeController {
         return alleKunder;
     }
 
+    @GetMapping("/slettAlle")
+    public void slettAlleKunde() {
+        alleKunder.clear();
+    }
 
 }

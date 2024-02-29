@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
     $("#send").click(function(){
         let filmValg = $("#filmValg").val();
         let antall = $("#antall").val();
@@ -91,4 +92,10 @@ $(document).ready(function () {
             }
         }
     });
+
+    $("#slettBillettene").click(function () {
+        $.get("/slettAlle",function(data){
+            $("#billettene").html(data);
+        })
+    })
 })
