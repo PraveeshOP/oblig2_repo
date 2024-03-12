@@ -70,32 +70,32 @@ $(document).ready(function () {
                 $("#telefonnr").val("");
                 $("#epost").val("");
             }
-            function hentAlle(){
-                $.get("/hentAlle",function(data){
-                    formaterData(data);
-                });
-            }
-            function formaterData(kunder){
-                let ut = "<table><tr><th>Film</th><th>Antall</th><th>Fornavn</th><th>Etternavn</th><th>Telefonnr</th><th>Epost</th></tr>";
-                for(const i of kunder) {
-                    ut += "<tr>" + //we add in the html var at the same time html + object properties
-                        "<td align='center'>" + i.filmValg + "</td>" +
-                        "<td align='center'>" + i.antall + "</td>" +
-                        "<td align='center'>" + i.fornavn + "</td>" +
-                        "<td align='center'>" + i.etternavn + "</td>" +
-                        "<td align='center'>" + i.telefonnr + "</td>" +
-                        "<td align='center'>" + i.epost + "</td>" +
-                        "</tr>";
-                }
-                ut+="</table>";
-                $("#billettene").html(ut);
-            }
         }
-    });
+    })
+    function hentAlle(){
+        $.get("/hentAlle",function(data){
+            formaterData(data);
+        });
+    }
+    function formaterData(kunder){
+        let ut = "<table class='table table-striped'><tr><th align='center'>Film</th><th align='center'>Antall</th><th align='center'>Fornavn</th><th align='center'>Etternavn</th><th align='center'>Telefonnr</th><th align='center'>Epost</th></tr>";
+        for(const i of kunder) {
+            ut += "<tr>" +
+                "<td align='center'>" + i.filmValg + "</td>" +
+                "<td align='center'>" + i.antall + "</td>" +
+                "<td align='center'>" + i.fornavn + "</td>" +
+                "<td align='center'>" + i.etternavn + "</td>" +
+                "<td align='center'>" + i.telefonnr + "</td>" +
+                "<td align='center'>" + i.epost + "</td>" +
+                "</tr>";
+        }
+        ut+="</table>";
+        $("#billettene").html(ut);
+    }
 
     $("#slettBillettene").click(function () {
-        $.get("/slettAlle",function(data){
-            $("#billettene").html(data);
+        $.get("/slettAlle",function(){
+            hentAlle();
         })
     })
 })

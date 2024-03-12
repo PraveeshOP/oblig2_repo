@@ -3,75 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <title>Oblig 2</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="java.js"></script>
 </head>
 <body>
-<h1>Bestilling av kinobiletter</h1>
-<table>
-    <tr>
-        <td>Velg film:</td>
-        <td><label for="filmValg"></label><select id="filmValg">
-            <option>Velg Film Her</option>
-            <option>Anyone But You</option>
-            <option>Argylle</option>
-            <option>Bukkene Bruse på badeland</option>
-            <option>Cem Karaca</option>
-            <option>Dark Windows</option>
-            <option>Dream Scenario</option>
-            <option>Ender på eventyr</option>
-            <option>Fest med Smurfene</option>
-            <option>Fritt fall</option>
-            <option>Jungelgjengen på Verdensturne</option>
-            <option>Konvoi</option>
-            <option>Lassie - På nye eventyr</option>
-            <option>Mean Girls</option>
-            <option>Miraklet i Gullspång</option>
-            <option>Napoleon</option>
-            <option>Perfect Days</option>
-            <option>Poor Things</option>
-            <option>Sau</option>
-            <option>Superkompisene</option>
-            <option>The Holdovers</option>
-            <option>The Hunger Games: The Ballad of Songbirds and Snakes</option>
-            <option>The Xone of Interest</option>
-            <option>Vermin</option>
-            <option>Wonka</option>
-        </select>
-        </td><td><div style="color: red" id="filmValgError"></div></td>
-    </tr>
-</table>
-<table>
-    <tr>
-        <td>Antall</td>
-        <td><label for="antall"></label><input type="text" id="antall"></td><td><div style="color: red" id="antallError"></div></td>
-    </tr>
-</table>
-<table>
-    <tr>
-        <td>Fornavn</td>
-        <td><label for="fornavn"></label><input type="text" id="fornavn"/></td><td><div style="color: red" id="fornavnError"></div></td>
-    </tr>
-    <tr>
-        <td>Etternavn</td>
-        <td><label for="etternavn"></label><input type="text" id="etternavn"/></td><td><div style="color: red" id="etternavnError"></div></td>
-    </tr>
-    <tr>
-        <td>Telefonnr</td>
-        <td><label for="telefonnr"></label><input type="text" id="telefonnr"/></td><td><div style="color: red" id="telefonError"></div></td>
-    </tr>
-    <tr>
-        <td>Epost</td>
-        <td><label for="epost"></label><input type="text" id="epost"/></td><td><div style="color: red" id="epostError"></div></td>
-    </tr>
-    <tr>
-        <td>
-            <input type="submit" id="send" value="Kjøp billet">
-        <td>
-    </tr>
-</table>
-<h2>Alle biletter</h2>
-<p id="billettene"></p>
-<input type="submit" id="slettBillettene" value="Slett alle billettene">
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <form class="form">
+                <h2>Bestilling av kinobiletter</h2>
+                <div class="form-group">
+                    <label for="filmValg">Velg flim: </label><select id="filmValg" style="width: 360px; ">
+                    <option>Velg Film Her</option>
+                    <option>Anyone But You</option>
+                    <option>Argylle</option>
+                    <option>Bukkene Bruse på badeland</option>
+                    <option>Cem Karaca</option>
+                    <option>Dark Windows</option>
+                    <option>Dream Scenario</option>
+                    <option>Ender på eventyr</option>
+                    <option>Fest med Smurfene</option>
+                    <option>Fritt fall</option>
+                    <option>Jungelgjengen på Verdensturne</option>
+                    <option>Konvoi</option>
+                    <option>Lassie - På nye eventyr</option>
+                    <option>Mean Girls</option>
+                    <option>Miraklet i Gullspång</option>
+                    <option>Napoleon</option>
+                    <option>Perfect Days</option>
+                    <option>Poor Things</option>
+                    <option>Sau</option>
+                    <option>Superkompisene</option>
+                    <option>The Holdovers</option>
+                    <option>The Hunger Games: The Ballad of Songbirds and Snakes</option>
+                    <option>The Xone of Interest</option>
+                    <option>Vermin</option>
+                    <option>Wonka</option>
+                </select>
+                    <div id="filmValgError" style="color: red"></div>
+                </div>
+                <div class="form-group">
+                    <label for="antall">Antall</label>
+                    <input type="text" class="form-control" id="antall"/>
+                    <div id="antallError" style="color: red"></div>
+                </div>
+                <div class="form-group">
+                    <label for="fornavn">Fornavn</label>
+                    <input type="text" class="form-control" id="fornavn"/>
+                    <div id="fornavnError" style="color: red"></div>
+                </div>
+                <div class="form-group">
+                    <label for="etternavn">Etternavn</label>
+                    <input type="text" class="form-control" id="etternavn"/>
+                    <div id="etternavnError" style="color: red"></div>
+                </div>
+                <div class="form-group">
+                    <label for="telefonnr">Telefonnr</label>
+                    <input type="text" class="form-control" id="telefonnr"/>
+                    <div id="telefonError" style="color: red"></div>
+                </div>
+                <div class="form-group">
+                    <label for="epost">Epost</label>
+                    <input type="text" class="form-control" id="epost"/>
+                    <div id="epostError" style="color: red"></div>
+                </div>
+            </form>
+            <input type="button" class="btn btn-primary" id="send" value="Kjøp billet">
+        </div>
+        <div class="col-md-8">
+            <h3>Alle Billetter:</h3>
+            <div id="billettene"></div>
+            <input type="button" class="btn btn-danger" id="slettBillettene" value="Slett alle billettene">
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
